@@ -1,19 +1,3 @@
-// function convertTemperature() {
-//   const inputTemperature = parseFloat(document.getElementById("degree").value);
-//   const tempType = document.getElementById("temp-type").value;
-
-//   let convertedTemperature;
-//   if (temp-type == "celcius") {
-//     convertedTemperature = (inputTemperature * 9) / 5 + 32;
-//     document.getElementById("output").textContent = "${inputTemperature} degrees Celcius = ${convertedTemperature} degrees Farenheit.";
-//   } // else if (unit === "Farenheit") {
-  //   convertedTemperature = ((inputTemperature - 32) * 5) / 9;
-  //   document.getElementById("output").textContent = "${inputTemperature} degrees Fahrenheit = ${convertedTemperature} degrees Celcius.";
-  // } else {
-  //   document.getElementById("output").textContent = "Please Select a Unit.";
-  // }
-// }
-
 const temperatureField = document.querySelector("#cel-val");
 const degree = document.querySelector("#degree");
 const button = document.querySelector("#convert-btn");
