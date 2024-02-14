@@ -1,0 +1,261 @@
+/* Resetting Layout */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto";
+}
+
+/* BACKGROUND SECTION */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url(../Asset/10861.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* NAVIGATION BAR */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 40px;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(5px);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: 0.5s;
+}
+
+.header:hover:before {
+  left: 100%;
+}
+
+.navbar #text-logo {
+  color: #01dbc2;
+  font-weight: 800;
+}
+.navbar a {
+  font-size: 18px;
+  font-family: "Roboto";
+  color: white;
+  text-decoration: none;
+  margin-left: 15px;
+  transition: 0.3s;
+}
+.navbar a:hover {
+  color: #01dbc2;
+}
+.logo a {
+  color: white;
+  margin-left: 58px;
+  font-size: 22px;
+  font-weight: 400;
+  font-family: "Roboto";
+  text-decoration: none;
+}
+.logo a img {
+  position: fixed;
+  height: 35px;
+  width: 60px;
+  top: 0px;
+  margin-top: 15px;
+  margin-left: 40px;
+  left: 0px;
+}
+/* BREAKPOINTS */
+@media (max-width: 992px) {
+  .header {
+    padding: 1.2rem;
+  }
+}
+
+/* Default Wrapper */
+.container {
+  width: 400px;
+  min-height: 400px;
+  justify-content: center;
+  align-items: center;
+  transform: translate(0%, 10%);
+}
+
+/*LIGHTS ANIMATION*/
+@property --a {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+.box {
+  position: relative;
+  width: 400px;
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: repeating-conic-gradient(from var(--a), #01dbc2 0%, #01dbc2 10%, transparent 10%, transparent 50%);
+  animation: animate 6s linear infinite;
+}
+@keyframes animate {
+  0% {
+    --a: 0deg;
+  }
+  100% {
+    --a: 360deg;
+  }
+}
+
+.box::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: repeating-conic-gradient(from var(--a), #01dbc2 0%, #01dbc2 10%, transparent 10%, transparent 50%);
+  animation: animate 6s linear infinite;
+  animation-delay: -1.5s;
+}
+.box::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border: 6px solid #222;
+  background: #111;
+}
+
+/* MAIN CONTENTS-CONVERTER STYLE CSS*/
+form {
+  position: relative;
+  z-index: 1000;
+  width: 100%;
+  min-width: 320px;
+  padding: 25px 50px 90px;
+  border-radius: 5px;
+  height: auto;
+  justify-content: center;
+}
+form h2 {
+  color: white;
+  font-family: monospace;
+  text-align: center;
+  font-weight: 500;
+}
+
+.degree-type {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+}
+
+.degree-field {
+  display: flex;
+  flex-direction: column;
+  width: 46%;
+}
+
+label {
+  color: #01dbc2;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  font-family: monospace;
+}
+
+input,
+select {
+  background: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #ccc;
+  padding: 8px;
+
+  color: white;
+}
+
+option {
+  background: #111;
+}
+
+#convert-btn {
+  background: linear-gradient(to bottom, #01dbc2, #005248);
+  color: #f6f6f6;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding: 4px 30px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-top: 10px;
+  transition: all 0.3s ease-in;
+  text-transform: uppercase;
+  cursor: pointer;
+} 
+#reset-btn {
+  background: linear-gradient(to bottom, #01dbc2, #005248);
+  color: #f6f6f6;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding: 4px 30px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-top: 10px;
+  margin-left: 5px;
+  transition: all 0.3s ease-in;
+  text-transform: uppercase;
+  cursor: pointer;
+} 
+.result {
+  text-align: center;
+  margin-top: 25px;
+  color: white;
+  z-index: 1000;
+}
+
+.result-heading {
+  color: #01dbc2;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: monospace;
+}
+
+.celsius-value {
+  border-bottom: 1px solid white;
+  padding: 10px;
+}
+
+.text {
+  position: absolute;
+  bottom: 0;
+  height: -100%;
+  width: -100vh;
+  padding-bottom: 25px;
+  color: white;
+  text-align: left;
+  z-index: 10001;
+  line-height: 20px;
+}
+
+.text h6 {
+  font-weight: 500;
+}
+.text p {
+  font-weight: 100;
+  font-size: 11px;
+}
